@@ -1,21 +1,13 @@
-version: 'LTS'
-networks:
-  jenkins-network:
-    name: jenkins
-volumes:
-  data:
-    name: jenkins-data
-  certs:
-    name: jenkins-docker-certs
-services:
-  jenkins:
-    container_name: jenkins-marvin
+jenkins:
+    systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+    container_name: my_marvin
     image: jenkins/jenkins
     restart: unless-stopped
     networks:
       - jenkins-network
     ports:
       - 8080:8080
+      - 50000:50000
     volumes:
       - data:/var/jenkins_home
       - certs:/certs/client:ro
