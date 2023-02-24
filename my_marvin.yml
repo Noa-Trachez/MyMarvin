@@ -1,17 +1,2 @@
 jenkins:
     systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
-    container_name: my_marvin
-    image: jenkins/jenkins
-    restart: unless-stopped
-    networks:
-      - jenkins-network
-    ports:
-      - 8080:8080
-      - 50000:50000
-    volumes:
-      - data:/var/jenkins_home
-      - certs:/certs/client:ro
-    environment:
-      - DOCKER_HOST=tcp://docker:2376
-      - DOCKER_CERT_PATH=/certs/client
-      - DOCKER_TLS_VERIFY=1
