@@ -5,9 +5,13 @@ folder('Tools') {
 
 freeStyleJob('Tools/clone-repository') {
     parameters {
-        stringParam('REPOSITORY_URL', ' ')
-        description('URL of the repository to clone.')
+        stringParam('REPOSITORY_URL', '', 'URL of the repository to clone.')
+    }
     steps {
-        shell('echo Hello World!')
+        shell('git clone ${REPOSITORY_URL}')
+    }
+    wrappers {
+        preBuildCleanup()
     }
 }
+
