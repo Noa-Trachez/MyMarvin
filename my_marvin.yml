@@ -1,2 +1,4 @@
 jenkins:
     systemMessage: "Welcome to the Chocolatine-Powered Marvin Jenkins Instance."
+jobs:
+    - file: /var/jenkins_home/job_dsl.groovy
