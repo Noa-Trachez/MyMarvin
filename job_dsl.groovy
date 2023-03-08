@@ -5,7 +5,7 @@ folder('Tools') {
 
 freeStyleJob('Tools/clone-repository') {
     parameters {
-        stringParam('GIT_REPOSITORY_URL', '', 'URL of the repository to clone.')
+        stringParam('GIT_REPOSITORY_URL', '', 'Git URL of the repository to clone')
     }
     wrappers {
         preBuildCleanup()
@@ -22,9 +22,6 @@ freeStyleJob('Tools/SEED') {
     }
     scm {
         github('$GITHUB_NAME')
-    }
-    triggers {
-        scm('H/1 * * * *')
     }
     steps {
         dsl {
