@@ -20,14 +20,17 @@ freeStyleJob('Tools/SEED') {
         stringParam('GITHUB_NAME', '', 'GitHub repository owner/repo_name (e.g.: "EpitechIT31000/chocolatine")')
         stringParam('DISPLAY_NAME', '', 'Display name for the job')
     }
-    scm {
-        github('$GITHUB_NAME')
-    }
     steps {
         dsl {
             text('''job ("\$DISPLAY_NAME") {
                 wrappers {
                     preBuildCleanup()
+                }
+                triggers {
+                    scm('H/1 * * * *')
+                }
+                scm {
+                    github("\$GITHUB_NAME")
                 }
                 steps {
                   shell("make fclean")
