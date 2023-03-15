@@ -27,7 +27,7 @@ freeStyleJob('Tools/SEED') {
                     preBuildCleanup()
                 }
                 triggers {
-                    scm('H/1 * * * *')
+                    scm('*/1 * * * *')
                 }
                 scm {
                     github("\$GITHUB_NAME")
